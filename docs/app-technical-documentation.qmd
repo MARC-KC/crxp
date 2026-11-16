@@ -102,11 +102,13 @@ crxp/
 ├─ scripts/             # build-data.mjs (validator), build-data-zip.mjs (downloads), og/sitemap
 ├─ docs/                # this documentation (rendered to GitHub Pages via .github/workflows)
 ├─ .github/workflows/   # deploy-docs.yml (Quarto → GitHub Pages)
-├─ vite.config.js (SvelteKit configured here) · netlify.toml
+├─ svelte.config.js     # adapter-static + base path (/RegionalExplorer)
+├─ vite.config.js       # Vite plugins, runes compiler option, test config
+├─ netlify.toml
 ```
 
-> SvelteKit is configured inside `vite.config.js` (the `sveltekit()` plugin sets the static adapter with
-> `fallback: '404.html'` and runes mode); there is no separate `svelte.config.js`.
+> SvelteKit is configured in `svelte.config.js` (static adapter with `fallback: '404.html'` and
+> `kit.paths.base = '/RegionalExplorer'`). `vite.config.js` keeps Vite/plugin and test settings.
 
 # The data contract (`static/data/`)
 
